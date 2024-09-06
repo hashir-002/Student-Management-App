@@ -1,0 +1,23 @@
+<!-- search_roll_number.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Marks by Roll Number</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Search Marks</h1>
+        <form method="post" action="{% url 'search' %}">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="roll_no" class="block text-sm font-medium text-gray-700">Roll Number:</label>
+                <input type="text" id="roll_no" name="roll_no" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Search</button>
+        </form>
+    </div>
+</body>
+</html>

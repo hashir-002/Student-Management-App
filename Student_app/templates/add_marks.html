@@ -1,0 +1,52 @@
+<!-- add_marks.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Marks</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Add Marks</h1>
+        <form method="post" action="{% url 'add_marks' %}">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="roll_number" class="block text-sm font-medium text-gray-700">Student Admission Number:</label>
+                <input type="number" id="roll_number" name="roll_no" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="subject" class="block text-sm font-medium text-gray-700">Subject:</label>
+                <select id="subject" name="subject_id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    {% for subject in subjects %}
+                        <option value="{{ subject.id }}">{{ subject.name }} </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="subject" class="block text-sm font-medium text-gray-700">Exam:</label>
+                <select id="subject" name="exam_id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                    {% for exam in exams %}
+                        <option value="{{ exam.id }}">{{ exam.name }} ({{exam.id}})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="marks_obtained" class="block text-sm font-medium text-gray-700">Marks Obtained:</label>
+                <input type="number" step="0.01" id="marks_obtained" name="marks_obtained" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="max_marks" class="block text-sm font-medium text-gray-700">Max Marks:</label>
+                <input type="number" step="0.01" id="max_marks" name="max_marks" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+            </div>
+
+            <button type="submit" class="bg-red-700 text-white px-4 py-2 rounded-full">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<style>
+  .Photo {
+    height: 188px;
+  }
+</style>
+<body class="bg-gray-100">
+
+<nav class="bg-white border-b border-gray-200">
+  <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <div class="text-xl font-bold">Nawabs</div>
+    <div class="hidden md:flex space-x-4">
+      <a href="#" class="text-gray-700 hover:text-blue-500">Home</a>
+      <a href="#" class="text-gray-700 hover:text-blue-500">About</a>
+      <a href="#" class="text-gray-700 hover:text-blue-500">Services</a>
+      <a href="#" class="text-gray-700 hover:text-blue-500">Contact</a>
+    </div>
+    <div class="md:hidden">
+      <button id="menu-toggle" class="focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden">
+    <a href="/" class="block px-4 py-2 text-gray-700 hover:text-blue-500">Home</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:text-blue-500">About</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:text-blue-500">Services</a>
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:text-blue-500">Contact</a>
+  </div>
+</nav>
+
+  <div class="mt-4 m-3 my-2">
+    <h1 class="text-2xl">Select Exam</h1>
+    <a href="/marks/1/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Formative Assessment 1</a>
+    <a href="/marks/2/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Formative Assessment 2</a>
+    <a href="/marks/3/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Summative Assessment 1</a>
+    <a href="/marks/4/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Formative Assessment 3</a>
+    <a href="/marks/5/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Formative Assessment 4</a>
+    <a href="/marks/6/{{student.id}}/" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-blue-700 my-2">Summative Assessment 2</a>
+    
+</div>
+</div>
+
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>
